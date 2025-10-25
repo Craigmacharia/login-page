@@ -47,7 +47,7 @@
       min-height: 100vh;
     }
 
-    /* Landing Section with Neutral Colors */
+    /* Landing Section */
     .landing-section {
       flex: 1;
       background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
@@ -56,7 +56,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 3rem 3rem;
+      padding: 3rem 2rem;
       position: relative;
       overflow: hidden;
       text-align: center;
@@ -74,29 +74,36 @@
     }
 
     .logo-container {
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.logo {
-  width: 300px;
-  height: 200px;
-  border-radius: 16px;
-  object-fit: contain;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.15);
-  border: 7px solid rgba(255, 255, 255, 0.9);
-  background-color: white;
-  padding: 10px;
-}
+    .logo {
+      width: 280px;
+      height: 180px;
+      border-radius: 16px;
+      object-fit: contain;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+      border: 6px solid rgba(255, 255, 255, 0.9);
+      background-color: white;
+      padding: 15px;
+    }
 
     .brand-name {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       font-weight: 700;
       color: var(--primary-blue);
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 0.5rem;
+    }
+
+    .brand-subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      font-weight: 500;
     }
 
     .landing-content {
@@ -106,17 +113,21 @@
     }
 
     .landing-section h1 {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
       color: #333;
+      line-height: 1.3;
     }
 
     .landing-section p {
       font-size: 1.2rem;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       line-height: 1.6;
       color: #555;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .landing-image {
@@ -124,7 +135,7 @@
       max-width: 500px;
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      margin-top: 2rem;
+      margin: 2rem 0;
       transition: var(--transition);
       border: 3px solid rgba(255, 255, 255, 0.5);
     }
@@ -134,78 +145,82 @@
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     }
 
+    /* Enhanced Features Section */
     .features {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 2.5rem;
+      gap: 1.8rem;
+      margin: 3rem 0 2rem;
     }
 
     .feature {
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 180px;
+      max-width: 200px;
+      padding: 1.8rem 1.2rem;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .feature::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-blue), var(--primary-blue-dark));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(210, 25, 25, 0.15);
+    }
+
+    .feature:hover::before {
+      transform: scaleX(1);
     }
 
     .feature i {
-      font-size: 2rem;
-      margin-bottom: 0.8rem;
-      background: rgba(210, 25, 25, 0.1);
-      color: var(--primary-blue);
-      width: 70px;
-      height: 70px;
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+      color: white;
+      width: 80px;
+      height: 80px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      transition: var(--transition);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 6px 20px rgba(210, 25, 25, 0.3);
     }
 
     .feature:hover i {
-      transform: scale(1.1);
-      background: rgba(210, 25, 25, 0.2);
+      transform: scale(1.15) rotate(5deg);
+      box-shadow: 0 10px 25px rgba(210, 25, 25, 0.4);
     }
 
     .feature span {
-      font-weight: 600;
+      font-weight: 700;
       text-align: center;
-      color: #444;
+      color: #333;
+      font-size: 1.1rem;
+      letter-spacing: 0.3px;
+      transition: all 0.3s ease;
     }
 
-    .advantages-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-      text-align: left;
-    }
-
-    .advantage-card {
-      background: white;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      transition: var(--transition);
-      border-left: 4px solid var(--primary-blue);
-    }
-
-    .advantage-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    .advantage-card h4 {
+    .feature:hover span {
       color: var(--primary-blue);
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    .advantage-card p {
-      font-size: 0.95rem;
-      color: #666;
-      margin-bottom: 0;
     }
 
     .btn-get-started {
@@ -213,20 +228,20 @@
       color: white;
       border: none;
       border-radius: 12px;
-      padding: 0.85rem 2.5rem;
+      padding: 1rem 2.8rem;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       transition: var(--transition);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(210, 25, 25, 0.3);
+      box-shadow: 0 6px 20px rgba(210, 25, 25, 0.3);
       margin-top: 2rem;
     }
 
     .btn-get-started:hover {
       background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
-      transform: translateY(-3px);
-      box-shadow: 0 7px 20px rgba(210, 25, 25, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(210, 25, 25, 0.4);
     }
 
     .btn-get-started:active {
@@ -242,7 +257,7 @@
 
     .login-modal .modal-header {
       border-bottom: none;
-      padding: 2rem 2rem 0.5rem;
+      padding: 2rem 2rem 0.8rem;
       position: relative;
     }
 
@@ -252,33 +267,32 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 50px;
-      height: 3px;
+      width: 60px;
+      height: 4px;
       background: linear-gradient(90deg, var(--primary-blue), var(--primary-blue-dark));
-      border-radius: 3px;
+      border-radius: 2px;
     }
 
     .login-modal .modal-title {
       color: var(--primary-blue);
       text-align: center;
       font-weight: 700;
-      font-size: 1.85rem;
+      font-size: 1.9rem;
       letter-spacing: 0.5px;
       width: 100%;
     }
 
     .login-modal .modal-body {
-      padding: 1.5rem 2rem 2rem;
+      padding: 1.8rem 2.2rem 2.2rem;
     }
 
     .form-control {
       border-radius: 12px;
       border: 1.5px solid #ddd;
-      padding: 0.85rem 1rem;
+      padding: 0.9rem 1.2rem;
       font-size: 1rem;
       transition: var(--transition);
       background-color: #fafafa;
-      position: relative;
     }
 
     .form-control:focus {
@@ -305,14 +319,15 @@
     .form-label {
       font-weight: 600;
       color: #444;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
       display: flex;
       align-items: center;
     }
 
     .form-label i {
-      margin-right: 8px;
+      margin-right: 10px;
       color: var(--primary-blue);
+      width: 18px;
     }
 
     .btn-login {
@@ -320,12 +335,10 @@
       color: white;
       border: none;
       border-radius: 12px;
-      padding: 0.85rem;
+      padding: 0.9rem;
       font-weight: 600;
       font-size: 1.1rem;
       transition: var(--transition);
-      position: relative;
-      overflow: hidden;
       box-shadow: 0 4px 15px rgba(210, 25, 25, 0.3);
     }
 
@@ -366,7 +379,7 @@
 
     .signup-text {
       text-align: center;
-      margin-top: 1.5rem;
+      margin-top: 1.8rem;
       font-size: 0.95rem;
       color: #666;
     }
@@ -396,7 +409,7 @@
     .divider {
       display: flex;
       align-items: center;
-      margin: 1.5rem 0;
+      margin: 1.8rem 0;
     }
 
     .divider::before,
@@ -408,63 +421,38 @@
     }
 
     .divider span {
-      padding: 0 1rem;
+      padding: 0 1.2rem;
       color: #777;
       font-size: 0.9rem;
     }
 
     .social-login {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .social-btn {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f5f5f5;
-      color: #555;
-      border: 1px solid #ddd;
-      transition: var(--transition);
-      text-decoration: none;
-    }
-
-    .social-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .social-btn.google:hover {
-      background: #db4437;
-      color: white;
-      border-color: #db4437;
-    }
-
-    .social-btn.facebook:hover {
-      background: #3b5998;
-      color: white;
-      border-color: #3b5998;
-    }
-
-    .social-btn.twitter:hover {
-      background: #1da1f2;
-      color: white;
-      border-color: #1da1f2;
+      display: none; /* Hidden as requested */
     }
 
     /* Responsive Adjustments */
+    @media (max-width: 1200px) {
+      .logo {
+        width: 250px;
+        height: 160px;
+      }
+      
+      .brand-name {
+        font-size: 2.2rem;
+      }
+      
+      .landing-section h1 {
+        font-size: 2.2rem;
+      }
+    }
+
     @media (max-width: 992px) {
       .main-container {
         flex-direction: column;
       }
       
       .landing-section {
-        padding: 2rem 1.5rem;
+        padding: 2.5rem 1.5rem;
       }
       
       .landing-section h1 {
@@ -476,11 +464,18 @@
       }
       
       .features {
-        gap: 1rem;
+        gap: 1.5rem;
       }
       
       .feature {
-        max-width: 150px;
+        max-width: 180px;
+        padding: 1.5rem 1rem;
+      }
+      
+      .feature i {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
       }
       
       .brand-name {
@@ -488,72 +483,133 @@
       }
       
       .logo {
-        width: 150px;
-        height: 150px;
+        width: 220px;
+        height: 140px;
       }
     }
 
     @media (max-width: 768px) {
       .login-modal .modal-body {
-        padding: 1.5rem 1.5rem 2rem;
+        padding: 1.5rem 1.8rem 2rem;
       }
       
       .landing-section h1 {
+        font-size: 1.9rem;
+      }
+      
+      .landing-section p {
+        font-size: 1.05rem;
+      }
+      
+      .features {
+        gap: 1.2rem;
+      }
+      
+      .feature {
+        max-width: 160px;
+        padding: 1.3rem 0.8rem;
+      }
+      
+      .feature i {
+        width: 65px;
+        height: 65px;
         font-size: 1.8rem;
+      }
+      
+      .feature span {
+        font-size: 1rem;
+      }
+      
+      .brand-name {
+        font-size: 1.9rem;
+      }
+      
+      .logo {
+        width: 200px;
+        height: 130px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .landing-section {
+        padding: 2rem 1rem;
+      }
+      
+      .landing-section h1 {
+        font-size: 1.7rem;
       }
       
       .landing-section p {
         font-size: 1rem;
+        margin-bottom: 2rem;
       }
       
-      .features {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-      }
-      
-      .feature {
+      .landing-image {
         max-width: 100%;
-        flex-direction: row;
-        gap: 1rem;
+        margin: 1.5rem 0;
       }
       
-      .feature i {
-        margin-bottom: 0;
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
+      .login-modal .modal-body {
+        padding: 1.3rem 1.5rem 1.8rem;
       }
       
       .brand-name {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
       }
       
       .logo {
-        width: 130px;
-        height: 130px;
+        width: 180px;
+        height: 120px;
+        padding: 12px;
       }
       
-      .advantages-grid {
-        grid-template-columns: 1fr;
+      .features {
+        gap: 1rem;
+        margin: 2.5rem 0 1.5rem;
+      }
+      
+      .feature {
+        max-width: 150px;
+        padding: 1.2rem 0.6rem;
+      }
+      
+      .feature i {
+        width: 60px;
+        height: 60px;
+        font-size: 1.7rem;
+        margin-bottom: 1rem;
+      }
+      
+      .feature span {
+        font-size: 0.95rem;
+      }
+      
+      .btn-get-started {
+        padding: 0.9rem 2.2rem;
+        font-size: 1.1rem;
+      }
+      
+      /* Full-screen modal on mobile */
+      .login-modal .modal-dialog {
+        margin: 0;
+        max-width: 100%;
+        height: 100vh;
+      }
+      
+      .login-modal .modal-content {
+        height: 100%;
+        border-radius: 0;
+        overflow-y: auto;
       }
     }
 
     @media (max-width: 480px) {
       .landing-section {
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 0.8rem;
       }
       
       .landing-section h1 {
         font-size: 1.6rem;
-      }
-      
-      .landing-image {
-        max-width: 100%;
-      }
-      
-      .login-modal .modal-body {
-        padding: 1rem 1rem 1.5rem;
       }
       
       .brand-name {
@@ -561,8 +617,44 @@
       }
       
       .logo {
-        width: 120px;
-        height: 120px;
+        width: 160px;
+        height: 110px;
+      }
+      
+      .features {
+        gap: 0.8rem;
+      }
+      
+      .feature {
+        max-width: 140px;
+        padding: 1rem 0.5rem;
+      }
+      
+      .feature i {
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
+      }
+      
+      .feature span {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .features {
+        gap: 0.6rem;
+      }
+      
+      .feature {
+        max-width: 130px;
+        padding: 0.9rem 0.4rem;
+      }
+      
+      .feature i {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
       }
     }
 
@@ -593,38 +685,37 @@
       <div class="logo-container">
         <img src="lgo.png" alt="Total Energies Logo" class="logo">
         <div class="brand-name">Boardify</div>
+        <div class="brand-subtitle">by Total Energies Kenya</div>
       </div>
       
       <div class="landing-content">
         <h1>AI-Powered Boardroom Coordination</h1>
-        <p>Transform your board governance with Boardify's AI-driven platform. Experience intelligent meeting management with live AI transcription and automatic task tracking, secure HD video collaboration with real-time captions, machine-learning powered compliance monitoring, predictive strategic insights and scenario modeling, automated board evaluations and benchmarking, digital workflows for approvals and elections with transparent results, and comprehensive governance analytics - all designed for modern boardrooms.</p>
+        <p>Transform your board governance with AI-assisted meetings, strategic planning, smart compliance, board evaluations, and secure elections & voting.</p>
         
-        <img src="lng.png" alt="Boardroom Coordination" class="landing-image">
+        <img src="bdr.png" alt="Boardroom Coordination" class="landing-image">
         
         <div class="features">
           <div class="feature">
             <i class="fas fa-robot"></i>
-            <span>Meetings</span>
+            <span>AI Assisted Meetings</span>
           </div>
           <div class="feature">
             <i class="fas fa-brain"></i>
-            <span>Planning</span>
+            <span>AI Driven Strategic Planning</span>
           </div>
           <div class="feature">
             <i class="fas fa-shield-alt"></i>
-            <span>Compliance</span>
+            <span>Smart Compliance</span>
           </div>
           <div class="feature">
             <i class="fas fa-chart-line"></i>
-            <span>Valuation</span>
+            <span>Board Evaluations</span>
           </div>
           <div class="feature">
             <i class="fas fa-vote-yea"></i>
-            <span>Election</span>
+            <span>Secure Board Elections & Voting</span>
           </div>
         </div>
-        
-        
         
         <button type="button" class="btn btn-get-started" data-bs-toggle="modal" data-bs-target="#loginModal">
           Get Started <i class="fas fa-arrow-right ms-2"></i>
@@ -674,22 +765,6 @@
             </div>
 
             <button type="submit" class="btn btn-login w-100 mb-3">Login</button>
-
-            <div class="divider">
-              <span>or continue with</span>
-            </div>
-
-            <div class="social-login">
-              <a href="#" class="social-btn google">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-btn facebook">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-btn twitter">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </div>
 
             <p class="signup-text mt-4">
               Don't have an account? <a href="#">Sign up</a>
