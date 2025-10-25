@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login | Total Energies Kenya</title>
+  <title>Boardify | Total Energies Kenya</title>
 
   <!-- Google Font: Comfortaa -->
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -40,78 +40,26 @@
       flex-direction: column;
     }
 
-    /* Enhanced Navbar with Glassmorphism */
-    .navbar {
-      background: rgba(237, 58, 58, 0.85);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      padding: 0.8rem 1.5rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      transition: var(--transition);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .navbar-container {
-      display: flex;
-      justify-content: flex-start;
-      width: 100%;
-    }
-
-    .navbar-brand {
-      display: flex;
-      align-items: center;
-      color: #fff !important;
-      font-weight: 700;
-      font-size: 1.5rem;
-      letter-spacing: 0.8px;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-
-    .navbar-brand:hover {
-      color: #e3f2fd !important;
-      transform: translateY(-1px);
-    }
-
-    .navbar-brand img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      transition: var(--transition);
-      border: 2px solid rgba(255, 255, 255, 0.8);
-    }
-
-    .navbar-brand:hover img {
-      transform: scale(1.08) rotate(5deg);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      border-color: white;
-    }
-
     /* Main Content Layout */
     .main-container {
       flex: 1;
       display: flex;
-      min-height: calc(100vh - 76px);
+      min-height: 100vh;
     }
 
-    /* Landing Section with Different Color */
+    /* Landing Section with Neutral Colors */
     .landing-section {
       flex: 1;
-      background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-hover) 100%);
-      color: white;
+      background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+      color: #333;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 3rem 2rem;
+      padding: 3rem 3rem;
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
 
     .landing-section::before {
@@ -121,12 +69,38 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, var(--primary-red-light), var(--primary-red));
+      background: linear-gradient(90deg, var(--primary-blue), var(--primary-blue-dark));
       z-index: 1;
     }
 
+    .logo-container {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 300px;
+  height: 200px;
+  border-radius: 16px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.15);
+  border: 7px solid rgba(255, 255, 255, 0.9);
+  background-color: white;
+  padding: 10px;
+}
+
+    .brand-name {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
     .landing-content {
-      max-width: 600px;
+      max-width: 900px;
       text-align: center;
       z-index: 2;
     }
@@ -135,30 +109,29 @@
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      color: #333;
     }
 
     .landing-section p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
       line-height: 1.6;
-      opacity: 0.9;
+      color: #555;
     }
 
     .landing-image {
       width: 100%;
       max-width: 500px;
       border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       margin-top: 2rem;
       transition: var(--transition);
-      border: 3px solid rgba(255, 255, 255, 0.2);
+      border: 3px solid rgba(255, 255, 255, 0.5);
     }
 
     .landing-image:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     }
 
     .features {
@@ -179,7 +152,8 @@
     .feature i {
       font-size: 2rem;
       margin-bottom: 0.8rem;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(210, 25, 25, 0.1);
+      color: var(--primary-blue);
       width: 70px;
       height: 70px;
       display: flex;
@@ -191,63 +165,88 @@
 
     .feature:hover i {
       transform: scale(1.1);
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(210, 25, 25, 0.2);
     }
 
     .feature span {
       font-weight: 600;
       text-align: center;
+      color: #444;
     }
 
-    /* Login Section */
-    .login-section {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.5);
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      text-align: left;
     }
 
-    .login-card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: var(--card-shadow);
-      padding: 2.5rem;
-      width: 100%;
-      max-width: 440px;
+    .advantage-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      border-left: 4px solid var(--primary-blue);
+    }
+
+    .advantage-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .advantage-card h4 {
+      color: var(--primary-blue);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .advantage-card p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 0;
+    }
+
+    .btn-get-started {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 0.85rem 2.5rem;
+      font-weight: 600;
+      font-size: 1.1rem;
       transition: var(--transition);
       position: relative;
       overflow: hidden;
+      box-shadow: 0 4px 15px rgba(210, 25, 25, 0.3);
+      margin-top: 2rem;
     }
 
-    .login-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: linear-gradient(90deg, var(--primary-blue), var(--primary-blue-dark));
+    .btn-get-started:hover {
+      background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 7px 20px rgba(210, 25, 25, 0.4);
     }
 
-    .login-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    .btn-get-started:active {
+      transform: translateY(0);
     }
 
-    .login-card h3 {
-      color: var(--primary-blue);
-      text-align: center;
-      margin-bottom: 1.8rem;
-      font-weight: 700;
-      font-size: 1.85rem;
-      letter-spacing: 0.5px;
+    /* Login Modal */
+    .login-modal .modal-content {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+
+    .login-modal .modal-header {
+      border-bottom: none;
+      padding: 2rem 2rem 0.5rem;
       position: relative;
-      padding-bottom: 15px;
     }
 
-    .login-card h3::after {
+    .login-modal .modal-header::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -257,6 +256,19 @@
       height: 3px;
       background: linear-gradient(90deg, var(--primary-blue), var(--primary-blue-dark));
       border-radius: 3px;
+    }
+
+    .login-modal .modal-title {
+      color: var(--primary-blue);
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.85rem;
+      letter-spacing: 0.5px;
+      width: 100%;
+    }
+
+    .login-modal .modal-body {
+      padding: 1.5rem 2rem 2rem;
     }
 
     .form-control {
@@ -271,7 +283,7 @@
 
     .form-control:focus {
       border-color: var(--primary-blue);
-      box-shadow: 0 0 0 0.2rem rgba(25, 118, 210, 0.15);
+      box-shadow: 0 0 0 0.2rem rgba(210, 25, 25, 0.15);
       background-color: #fff;
       transform: translateY(-2px);
     }
@@ -303,7 +315,7 @@
       color: var(--primary-blue);
     }
 
-    .btn-primary {
+    .btn-login {
       background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
       color: white;
       border: none;
@@ -314,16 +326,16 @@
       transition: var(--transition);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+      box-shadow: 0 4px 15px rgba(210, 25, 25, 0.3);
     }
 
-    .btn-primary:hover {
+    .btn-login:hover {
       background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
       transform: translateY(-3px);
-      box-shadow: 0 7px 20px rgba(25, 118, 210, 0.4);
+      box-shadow: 0 7px 20px rgba(210, 25, 25, 0.4);
     }
 
-    .btn-primary:active {
+    .btn-login:active {
       transform: translateY(0);
     }
 
@@ -470,20 +482,20 @@
       .feature {
         max-width: 150px;
       }
+      
+      .brand-name {
+        font-size: 2rem;
+      }
+      
+      .logo {
+        width: 150px;
+        height: 150px;
+      }
     }
 
     @media (max-width: 768px) {
-      .login-card {
-        padding: 2rem 1.5rem;
-      }
-      
-      .navbar-brand {
-        font-size: 1.3rem;
-      }
-
-      .navbar-brand img {
-        width: 42px;
-        height: 42px;
+      .login-modal .modal-body {
+        padding: 1.5rem 1.5rem 2rem;
       }
       
       .landing-section h1 {
@@ -512,13 +524,22 @@
         height: 50px;
         font-size: 1.5rem;
       }
+      
+      .brand-name {
+        font-size: 1.8rem;
+      }
+      
+      .logo {
+        width: 130px;
+        height: 130px;
+      }
+      
+      .advantages-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 480px) {
-      .login-card {
-        padding: 1.5rem;
-      }
-      
       .landing-section {
         padding: 1.5rem 1rem;
       }
@@ -530,6 +551,19 @@
       .landing-image {
         max-width: 100%;
       }
+      
+      .login-modal .modal-body {
+        padding: 1rem 1rem 1.5rem;
+      }
+      
+      .brand-name {
+        font-size: 1.6rem;
+      }
+      
+      .logo {
+        width: 120px;
+        height: 120px;
+      }
     }
 
     /* Animation for form elements */
@@ -538,116 +572,132 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .login-card form > * {
+    .login-modal .modal-body form > * {
       animation: fadeIn 0.5s ease forwards;
     }
 
-    .login-card form > *:nth-child(1) { animation-delay: 0.1s; }
-    .login-card form > *:nth-child(2) { animation-delay: 0.2s; }
-    .login-card form > *:nth-child(3) { animation-delay: 0.3s; }
-    .login-card form > *:nth-child(4) { animation-delay: 0.4s; }
-    .login-card form > *:nth-child(5) { animation-delay: 0.5s; }
-    .login-card form > *:nth-child(6) { animation-delay: 0.6s; }
+    .login-modal .modal-body form > *:nth-child(1) { animation-delay: 0.1s; }
+    .login-modal .modal-body form > *:nth-child(2) { animation-delay: 0.2s; }
+    .login-modal .modal-body form > *:nth-child(3) { animation-delay: 0.3s; }
+    .login-modal .modal-body form > *:nth-child(4) { animation-delay: 0.4s; }
+    .login-modal .modal-body form > *:nth-child(5) { animation-delay: 0.5s; }
+    .login-modal .modal-body form > *:nth-child(6) { animation-delay: 0.6s; }
   </style>
 </head>
 <body>
-
-  <!-- Enhanced Mini Navbar with Glassmorphism -->
-  <nav class="navbar">
-    <div class="navbar-container">
-      <a class="navbar-brand" href="#">
-        <img src="lgo.png" alt="Total Energies Logo">
-        Total Energies Kenya
-      </a>
-    </div>
-  </nav>
 
   <!-- Main Content -->
   <div class="main-container">
     <!-- Landing Section -->
     <section class="landing-section">
+      <div class="logo-container">
+        <img src="lgo.png" alt="Total Energies Logo" class="logo">
+        <div class="brand-name">Boardify</div>
+      </div>
+      
       <div class="landing-content">
-        <h1>Powering Progress in Kenya</h1>
-        <p>Join Total Energies Kenya in our commitment to provide sustainable energy solutions while driving economic growth and environmental stewardship across the nation.</p>
+        <h1>AI-Powered Boardroom Coordination</h1>
+        <p>Transform your board governance with Boardify's AI-driven platform. Experience intelligent meeting management with live AI transcription and automatic task tracking, secure HD video collaboration with real-time captions, machine-learning powered compliance monitoring, predictive strategic insights and scenario modeling, automated board evaluations and benchmarking, digital workflows for approvals and elections with transparent results, and comprehensive governance analytics - all designed for modern boardrooms.</p>
         
-        <img src="img.png" alt="Energy Innovation" class="landing-image">
+        <img src="lng.png" alt="Boardroom Coordination" class="landing-image">
         
         <div class="features">
           <div class="feature">
-            <i class="fas fa-bolt"></i>
-            <span>Renewable Energy</span>
+            <i class="fas fa-robot"></i>
+            <span>Meetings</span>
           </div>
           <div class="feature">
-            <i class="fas fa-leaf"></i>
-            <span>Sustainability</span>
+            <i class="fas fa-brain"></i>
+            <span>Planning</span>
           </div>
           <div class="feature">
-            <i class="fas fa-handshake"></i>
-            <span>Community Focus</span>
+            <i class="fas fa-shield-alt"></i>
+            <span>Compliance</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-chart-line"></i>
+            <span>Valuation</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-vote-yea"></i>
+            <span>Election</span>
           </div>
         </div>
+        
+        
+        
+        <button type="button" class="btn btn-get-started" data-bs-toggle="modal" data-bs-target="#loginModal">
+          Get Started <i class="fas fa-arrow-right ms-2"></i>
+        </button>
       </div>
     </section>
+  </div>
 
-    <!-- Login Section -->
-    <section class="login-section">
-      <div class="login-card">
-        <h3>Welcome Back</h3>
-        <form>
-          <div class="mb-4">
-            <label for="email" class="form-label">
-              <i class="fas fa-envelope"></i>Email Address
-            </label>
-            <div class="input-group">
-              <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
-              <span class="icon"><i class="fas fa-user"></i></span>
-            </div>
-          </div>
-
-          <div class="mb-4">
-            <label for="password" class="form-label">
-              <i class="fas fa-lock"></i>Password
-            </label>
-            <div class="input-group">
-              <input type="password" class="form-control" id="password" placeholder="••••••••" required>
-              <span class="icon"><i class="fas fa-eye-slash"></i></span>
-            </div>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="rememberMe">
-              <label for="rememberMe" class="form-check-label">
-                <i class="fas fa-check-circle"></i>Remember me
+  <!-- Login Modal -->
+  <div class="modal fade login-modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Welcome to Boardify</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-4">
+              <label for="email" class="form-label">
+                <i class="fas fa-envelope"></i>Email Address
               </label>
+              <div class="input-group">
+                <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                <span class="icon"><i class="fas fa-user"></i></span>
+              </div>
             </div>
-            <a href="#" class="text-muted">Forgot password?</a>
-          </div>
 
-          <button type="submit" class="btn btn-primary w-100 mb-3">Login</button>
+            <div class="mb-4">
+              <label for="password" class="form-label">
+                <i class="fas fa-lock"></i>Password
+              </label>
+              <div class="input-group">
+                <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                <span class="icon"><i class="fas fa-eye-slash"></i></span>
+              </div>
+            </div>
 
-          <div class="divider">
-            <span>or continue with</span>
-          </div>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label for="rememberMe" class="form-check-label">
+                  <i class="fas fa-check-circle"></i>Remember me
+                </label>
+              </div>
+              <a href="#" class="text-muted">Forgot password?</a>
+            </div>
 
-          <div class="social-login">
-            <a href="#" class="social-btn google">
-              <i class="fab fa-google"></i>
-            </a>
-            <a href="#" class="social-btn facebook">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="social-btn twitter">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </div>
+            <button type="submit" class="btn btn-login w-100 mb-3">Login</button>
 
-          <p class="signup-text mt-4">
-            Don't have an account? <a href="#">Sign up</a>
-          </p>
-        </form>
+            <div class="divider">
+              <span>or continue with</span>
+            </div>
+
+            <div class="social-login">
+              <a href="#" class="social-btn google">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-btn facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-btn twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+
+            <p class="signup-text mt-4">
+              Don't have an account? <a href="#">Sign up</a>
+            </p>
+          </form>
+        </div>
       </div>
-    </section>
+    </div>
   </div>
 
   <!-- Bootstrap JS -->
@@ -674,10 +724,10 @@
       }
       
       // Form submission animation
-      const form = document.querySelector('form');
+      const form = document.querySelector('.login-modal form');
       form.addEventListener('submit', function(e) {
         e.preventDefault();
-        const button = this.querySelector('.btn-primary');
+        const button = this.querySelector('.btn-login');
         button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
         button.disabled = true;
         
@@ -685,6 +735,19 @@
         setTimeout(function() {
           button.innerHTML = '<i class="fas fa-check"></i> Login Successful!';
           button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+          
+          // Close modal after successful login
+          setTimeout(function() {
+            const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+            modal.hide();
+            
+            // Reset button after modal closes
+            setTimeout(function() {
+              button.innerHTML = 'Login';
+              button.disabled = false;
+              button.style.background = '';
+            }, 500);
+          }, 1500);
         }, 1500);
       });
     });
