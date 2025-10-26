@@ -3,319 +3,280 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Boardify | Total Energies Kenya</title>
+  <title>Boardify </title>
 
-  <!-- Google Font: Comfortaa -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
-      --primary-red: #d32f2f;
-      --primary-red-hover: #b71c1c;
-      --primary-red-light: #f1402f;
       --primary-blue: #d21919;
       --primary-blue-dark: #a10d0d;
-      --primary-blue-light: #e74c3c;
-      --bg-light: #f8f9fa;
-      --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-      --transition: all 0.3s ease;
       --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
       --gradient-hover: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
+      --transition: all 0.3s ease;
+      --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f0 100%);
       font-family: 'Comfortaa', sans-serif;
-      min-height: 100vh;
-      margin: 0;
+      background: white;
       color: #333;
-      display: flex;
-      flex-direction: column;
+      min-height: 100vh;
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
+    /* Fluid Typography */
+    html { font-size: 16px; }
+
+    h1 { 
+      font-size: clamp(2.2rem, 6vw, 3.2rem); 
+      font-weight: 700; 
+      line-height: 1.2; 
+      margin-bottom: 1.5rem; 
+    }
+    h2 { 
+      font-size: clamp(1.9rem, 5vw, 2.5rem); 
+      font-weight: 700; 
+      margin-bottom: 1.8rem; 
+    }
+    p { 
+      font-size: clamp(1.05rem, 2.8vw, 1.25rem); 
+      margin-bottom: 1.6rem; 
+      color: #555; 
+    }
+
+    /* Main Container */
     .main-container {
-      flex: 1;
-      display: flex;
+      position: relative;
       min-height: 100vh;
-    }
-
-    /* ==================== LANDING SECTION ==================== */
-    .landing-section {
-      flex: 1;
-      background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
-      color: #333;
+      padding: clamp(2.5rem, 7vw, 5rem) clamp(2rem, 6vw, 5rem);
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 3rem 2rem;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
     }
 
-    .landing-section::before {
+    .main-container::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 4px;
+      height: 5px;
       background: var(--gradient-primary);
-      z-index: 1;
+      z-index: 10;
+    }
+
+    /* Header: Logo + Login */
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: clamp(3rem, 7vw, 4.5rem);
+      gap: 3rem;
     }
 
     .logo-container {
-      margin-bottom: 2.5rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
+      flex: 1;
     }
 
     .logo {
-      width: 280px;
-      height: 180px;
-      border-radius: 16px;
+      width: clamp(200px, 38vw, 340px);
+      height: auto;
+      max-height: 220px;
       object-fit: contain;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-      border: 6px solid rgba(255, 255, 255, 0.9);
-      background-color: white;
-      padding: 15px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-md);
+      border: 7px solid rgba(255, 255, 255, 0.95);
+      background: white;
+      padding: clamp(14px, 3.5vw, 20px);
+      transition: var(--transition);
     }
 
     .brand-name {
-      font-size: 2.4rem;
+      font-size: clamp(2.1rem, 6.5vw, 3rem);
       font-weight: 700;
       color: var(--primary-blue);
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      margin-top: 1.2rem;
     }
 
-    .landing-content {
-      max-width: 1000px;
+    /* Login Card - LARGER on PC/Tablet */
+    .login-card {
+      width: clamp(380px, 40vw, 480px);
+      padding: clamp(2.5rem, 6vw, 3.2rem);
+      background: white;
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      z-index: 5;
+    }
+
+    .login-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: var(--gradient-primary);
+      border-radius: 24px 24px 0 0;
+    }
+
+    .login-title {
       text-align: center;
-      z-index: 2;
+      margin-bottom: 2rem;
+      color: var(--primary-blue);
+    }
+
+    /* Content Area */
+    .content-area {
+      max-width: 1600px;
+      margin: 0 auto;
       width: 100%;
     }
 
-    .landing-section h1 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: #333;
-      line-height: 1.3;
-    }
-
-    .landing-section p {
-      font-size: 1.2rem;
-      margin-bottom: 2.5rem;
-      line-height: 1.6;
-      color: #555;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+    .landing-text {
+      text-align: left;
+      max-width: 850px;
+      margin-bottom: clamp(3rem, 7vw, 4.5rem);
     }
 
     .landing-image {
       width: 100%;
-      max-width: 500px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      margin: 2rem 0;
+      max-width: clamp(380px, 75vw, 650px);
+      border-radius: 20px;
+      box-shadow: var(--shadow-md);
+      margin: clamp(2.5rem, 6vw, 4rem) 0;
+      border: 4px solid rgba(255, 255, 255, 0.6);
       transition: var(--transition);
-      border: 3px solid rgba(255, 255, 255, 0.5);
     }
 
     .landing-image:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
     }
 
-    /* ==================== FEATURES - OPTIMIZED FOR ALL SCREENS ==================== */
+    /* Features - All 6 on one line on PC */
     .features {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin: 3rem 0 2rem;
+      flex-wrap: nowrap;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      padding: 1.5rem 0;
+      margin-bottom: clamp(2.5rem, 6vw, 4rem);
+      justify-content: space-between;
       width: 100%;
-      max-width: 1100px;
-      justify-content: center;
-      align-items: stretch;
     }
 
     .feature {
-      flex: 1 1 160px;
+      flex: 1;
+      min-width: 140px;
+      padding: clamp(1.4rem, 3vw, 1.8rem) clamp(0.8rem, 1.5vw, 1.2rem);
+      background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(250,250,250,0.98));
+      border-radius: 18px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255,255,255,0.8);
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 1.8rem 1.2rem;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      min-height: 200px;
     }
 
     .feature::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 3px;
+      height: 4px;
       background: var(--gradient-primary);
       transform: scaleX(0);
       transition: transform 0.3s ease;
     }
 
     .feature:hover {
-      transform: translateY(-8px) scale(1.02);
+      transform: translateY(-8px) scale(1.03);
       box-shadow: 0 20px 40px rgba(210, 25, 25, 0.15);
     }
 
     .feature:hover::before { transform: scaleX(1); }
 
     .feature i {
-      font-size: 1.8rem;
-      margin-bottom: 1.2rem;
+      font-size: clamp(1.4rem, 3.5vw, 1.7rem);
+      width: clamp(55px, 10vw, 65px);
+      height: clamp(55px, 10vw, 65px);
       background: var(--gradient-primary);
       color: white;
-      width: 70px;
-      height: 70px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      box-shadow: 0 6px 20px rgba(210, 25, 25, 0.3);
+      margin-bottom: 0.8rem;
+      box-shadow: 0 7px 22px rgba(210, 25, 25, 0.35);
+      transition: var(--transition);
     }
 
     .feature:hover i {
-      transform: scale(1.15) rotate(5deg);
-      box-shadow: 0 10px 25px rgba(210, 25, 25, 0.4);
+      transform: scale(1.15) rotate(8deg);
+      box-shadow: 0 10px 25px rgba(210, 25, 25, 0.45);
     }
 
     .feature span {
       font-weight: 700;
-      text-align: center;
+      font-size: clamp(0.85rem, 2vw, 0.95rem);
       color: #333;
-      font-size: 1rem;
-      letter-spacing: 0.3px;
-      transition: all 0.3s ease;
-      line-height: 1.4;
+      line-height: 1.3;
+      transition: color 0.3s ease;
     }
 
     .feature:hover span { color: var(--primary-blue); }
 
-    /* ==================== GET STARTED BUTTON ==================== */
+    /* Get Started Button - Mobile Only */
     .btn-get-started {
       background: var(--gradient-primary);
       color: white;
       border: none;
-      border-radius: 12px;
-      padding: 1rem 2.8rem;
+      border-radius: 16px;
+      padding: clamp(1rem, 3vw, 1.2rem) clamp(2.5rem, 7vw, 3.5rem);
       font-weight: 600;
-      font-size: 1.2rem;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(210, 25, 25, 0.3);
-      margin-top: 2rem;
-      display: inline-block;
+      font-size: clamp(1.1rem, 3.2vw, 1.3rem);
+      box-shadow: 0 7px 24px rgba(210, 25, 25, 0.35);
+      margin: 2.5rem auto 0;
+      display: none;
+      max-width: 360px;
       width: 100%;
-      max-width: 320px;
-      margin-left: auto;
-      margin-right: auto;
+      transition: var(--transition);
     }
 
     .btn-get-started:hover {
       background: var(--gradient-hover);
       transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(210, 25, 25, 0.4);
+      box-shadow: 0 12px 30px rgba(210, 25, 25, 0.45);
     }
 
-    .btn-get-started:active { transform: translateY(0); }
-
-    /* ==================== LOGIN SECTION - REFINED POSITIONING ==================== */
-    .login-section {
-      display: none;
-      flex: 0 0 420px;
-      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-      position: relative;
-      overflow: hidden;
-      padding: 2rem;
-      box-shadow: none;
-    }
-
-    .login-section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: var(--gradient-primary);
-      z-index: 1;
-    }
-
-    .login-container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      height: 100%;
-      width: 100%;
-      padding-top: 2rem;
-    }
-
-    .login-content {
-      max-width: 380px;
-      width: 100%;
-      padding: 2.5rem 2rem;
-      border-radius: 20px;
-      background: white;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-      position: relative;
-      animation: fadeInUp 0.6s ease-out;
-    }
-
-    .login-content::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 5px;
-      background: var(--gradient-primary);
-      border-radius: 20px 20px 0 0;
-    }
-
-    .login-title {
-      color: var(--primary-blue);
-      text-align: center;
-      font-weight: 700;
-      font-size: 1.8rem;
-      letter-spacing: 0.5px;
-      margin-bottom: 2rem;
-    }
-
-    /* ==================== FORM STYLES ==================== */
+    /* Form Styles */
     .form-control {
-      border-radius: 12px;
-      border: 1.5px solid #ddd;
-      padding: 0.9rem 1.2rem;
+      border-radius: 16px;
+      border: 1.8px solid #eaeaea;
+      padding: clamp(1rem, 3vw, 1.1rem) clamp(1.2rem, 3.5vw, 1.4rem);
       font-size: 1rem;
-      transition: var(--transition);
       background-color: #fafafa;
+      transition: var(--transition);
     }
 
     .form-control:focus {
       border-color: var(--primary-blue);
-      box-shadow: 0 0 0 0.2rem rgba(210, 25, 25, 0.15);
+      box-shadow: 0 0 0 0.25rem rgba(210, 25, 25, 0.18);
       background-color: #fff;
       transform: translateY(-2px);
     }
@@ -324,76 +285,51 @@
 
     .input-group .icon {
       position: absolute;
-      right: 15px;
+      right: 16px;
       top: 50%;
       transform: translateY(-50%);
       color: #888;
-      z-index: 5;
+      font-size: 1.1rem;
       cursor: pointer;
+      z-index: 5;
     }
 
     .form-label {
       font-weight: 600;
       color: #444;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.7rem;
+      font-size: 1rem;
       display: flex;
       align-items: center;
     }
 
     .form-label i {
-      margin-right: 10px;
+      margin-right: 9px;
       color: var(--primary-blue);
-      width: 18px;
+      width: 20px;
     }
 
     .btn-login {
       background: var(--gradient-primary);
       color: white;
       border: none;
-      border-radius: 12px;
-      padding: 0.9rem;
+      border-radius: 16px;
+      padding: clamp(1rem, 3vw, 1.1rem);
       font-weight: 600;
       font-size: 1.1rem;
+      box-shadow: 0 6px 20px rgba(210, 25, 25, 0.35);
       transition: var(--transition);
-      box-shadow: 0 4px 15px rgba(210, 25, 25, 0.3);
     }
 
     .btn-login:hover {
       background: var(--gradient-hover);
       transform: translateY(-3px);
-      box-shadow: 0 7px 20px rgba(210, 25, 25, 0.4);
-    }
-
-    .btn-login:active { transform: translateY(0); }
-
-    .form-check-label {
-      font-size: 0.95rem;
-      color: #555;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-    }
-
-    .form-check-input:checked {
-      background-color: var(--primary-blue);
-      border-color: var(--primary-blue);
-    }
-
-    .text-muted a {
-      color: var(--primary-blue);
-      text-decoration: none;
-      font-weight: 500;
-      transition: var(--transition);
-    }
-
-    .text-muted a:hover {
-      text-decoration: underline;
-      color: var(--primary-blue-dark);
+      box-shadow: 0 9px 28px rgba(210, 25, 25, 0.45);
     }
 
     .signup-text {
       text-align: center;
-      margin-top: 1.8rem;
+      margin-top: 1.6rem;
       font-size: 0.95rem;
       color: #666;
     }
@@ -408,382 +344,312 @@
     .signup-text a::after {
       content: '';
       position: absolute;
-      bottom: -2px;
+      bottom: -3px;
       left: 0;
       width: 0;
-      height: 2px;
+      height: 2.5px;
       background: var(--primary-blue);
-      transition: var(--transition);
+      transition: width 0.3s ease;
     }
 
     .signup-text a:hover::after { width: 100%; }
 
-    /* ==================== FLOATING SHAPES ==================== */
+    /* Floating Shapes */
     .floating-shapes {
       position: absolute;
       width: 100%;
       height: 100%;
       overflow: hidden;
-      z-index: 0;
       pointer-events: none;
+      z-index: 0;
+      top: 0; left: 0;
     }
 
     .shape {
       position: absolute;
       border-radius: 50%;
       background: rgba(210, 25, 25, 0.05);
-      animation: float 15s infinite ease-in-out;
+      animation: float 16s infinite ease-in-out;
     }
 
-    .shape:nth-child(1) { width: 180px; height: 180px; top: 10%; left: 5%; animation-delay: 0s; }
-    .shape:nth-child(2) { width: 120px; height: 120px; top: 60%; left: 80%; animation-delay: 2s; }
-    .shape:nth-child(3) { width: 220px; height: 220px; top: 30%; left: 70%; animation-delay: 4s; }
-    .shape:nth-child(4) { width: 140px; height: 140px; top: 80%; left: 10%; animation-delay: 6s; }
+    .shape:nth-child(1) { width: 180px; height: 180px; top: 12%; left: 6%; animation-delay: 0s; }
+    .shape:nth-child(2) { width: 120px; height: 120px; top: 62%; left: 78%; animation-delay: 3s; }
+    .shape:nth-child(3) { width: 200px; height: 200px; top: 32%; left: 70%; animation-delay: 5s; }
+    .shape:nth-child(4) { width: 140px; height: 140px; top: 78%; left: 10%; animation-delay: 7s; }
 
     @keyframes float {
       0%, 100% { transform: translateY(0) rotate(0deg); }
       50% { transform: translateY(-25px) rotate(12deg); }
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    /* RESPONSIVE BREAKPOINTS */
 
-    /* ==================== LOGIN MODAL - FULL PAGE ON MOBILE ==================== */
-    .login-modal .modal-content {
-      border-radius: 0;
-      border: none;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    }
-
-    .login-modal .modal-header {
-      border-bottom: none;
-      padding: 2rem 2rem 0;
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-
-    .login-modal .modal-header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: var(--gradient-primary);
-      border-radius: 2px;
-    }
-
-    .login-modal .modal-title {
-      color: var(--primary-blue);
-      text-align: center;
-      font-weight: 700;
-      font-size: 2.2rem;
-      letter-spacing: 0.5px;
-      width: 100%;
-    }
-
-    .login-modal .modal-body {
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .login-modal .modal-body form {
-      width: 100%;
-      max-width: 400px;
-    }
-
-    /* ==================== DESKTOP LAYOUT (≥1200px) ==================== */
-    @media (min-width: 1200px) {
-      .login-section { 
-        display: flex; 
-      }
-      .landing-section { 
-        flex: 1; 
-        justify-content: center;
-      }
-      .features {
+    /* PC (≥992px) - All 6 features on one line */
+    @media (min-width: 992px) {
+      .header-row { align-items: flex-start; }
+      .login-card { display: block; }
+      .btn-get-started { display: none !important; }
+      .features { 
         flex-wrap: nowrap;
-        gap: 1.5rem;
+        gap: clamp(1rem, 1.5vw, 1.2rem);
       }
-      .feature {
+      .feature { 
         flex: 1;
-        max-width: 170px;
+        min-width: 140px;
+        padding: 1.6rem 0.8rem;
       }
-      .btn-get-started {
-        display: none !important;
+      .feature i {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+      .feature span {
+        font-size: 0.9rem;
       }
     }
 
-    /* ==================== MOBILE & TABLET (<1200px) ==================== */
-    @media (max-width: 1199.98px) {
-      .main-container { 
-        flex-direction: column; 
+    /* Large Desktop (≥1200px) */
+    @media (min-width: 1200px) {
+      .features { 
+        gap: clamp(1.2rem, 2vw, 1.5rem);
       }
-      .btn-get-started {
-        display: block;
+      .feature { 
+        padding: 1.8rem 1rem;
       }
+      .feature i {
+        width: 65px;
+        height: 65px;
+        font-size: 1.6rem;
+      }
+      .feature span {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Tablet Landscape (768px - 991px) */
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      .header-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2.5rem;
+      }
+      .logo-container { align-items: center; }
+      .login-card { 
+        width: clamp(380px, 80vw, 500px); 
+        display: block; 
+      }
+      .btn-get-started { display: none !important; }
       .features {
-        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
+        gap: 1.2rem;
       }
-      .feature {
-        flex: 1 1 150px;
-        max-width: 180px;
-      }
-    }
-
-    @media (max-width: 992px) {
-      .landing-section { padding: 2.5rem 1.5rem; }
-      .landing-section h1 { font-size: 2rem; }
-      .landing-section p { font-size: 1.1rem; }
-      .features { gap: 1.5rem; }
-      .feature { max-width: 180px; padding: 1.5rem 1rem; }
-      .feature i { width: 70px; height: 70px; font-size: 2rem; }
-      .logo { width: 220px; height: 140px; }
-      .brand-name { font-size: 2rem; }
-    }
-
-    @media (max-width: 768px) {
-      .landing-section h1 { font-size: 1.9rem; }
-      .landing-section p { font-size: 1.05rem; }
-      .features { gap: 1.2rem; }
-      .feature { max-width: 160px; padding: 1.3rem 0.8rem; }
-      .feature i { width: 65px; height: 65px; font-size: 1.8rem; }
-      .feature span { font-size: 1rem; }
-      .logo { width: 200px; height: 130px; }
-      .brand-name { font-size: 1.9rem; }
-    }
-
-    @media (max-width: 576px) {
-      .landing-section { padding: 2rem 1rem; }
-      .landing-section h1 { font-size: 1.7rem; }
-      .landing-section p { font-size: 1rem; margin-bottom: 2rem; }
-      .landing-image { max-width: 100%; margin: 1.5rem 0; }
-      .logo { width: 180px; height: 120px; padding: 12px; }
-      .features { gap: 1rem; margin: 2.5rem 0 1.5rem; }
-      .feature { max-width: 150px; padding: 1.2rem 0.6rem; }
-      .feature i { width: 60px; height: 60px; font-size: 1.7rem; margin-bottom: 1rem; }
-      .feature span { font-size: 0.95rem; }
-      .btn-get-started { padding: 0.9rem 2.2rem; font-size: 1.1rem; }
-      
-      .login-modal .modal-dialog {
-        margin: 0;
-        max-width: 100%;
-        height: 100vh;
+      .feature { 
+        flex: 1 1 calc(33.333% - 1.2rem);
+        max-width: 180px; 
+        min-width: 150px; 
       }
     }
 
-    @media (max-width: 480px) {
-      .landing-section { padding: 1.5rem 0.8rem; }
-      .landing-section h1 { font-size: 1.6rem; }
-      .brand-name { font-size: 1.6rem; }
-      .logo { width: 160px; height: 110px; }
-      .features { gap: 0.8rem; }
-      .feature { max-width: 140px; padding: 1rem 0.5rem; }
-      .feature i { width: 55px; height: 55px; font-size: 1.6rem; }
-      .feature span { font-size: 0.9rem; }
-      .btn-get-started { padding: 0.8rem 1.8rem; font-size: 1rem; }
+    /* Tablet Portrait (576px - 767px) */
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      .main-container { padding: 2.5rem 2rem; }
+      .header-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+      }
+      .logo-container { align-items: center; }
+      .login-card { display: none !important; }
+      .btn-get-started { display: block; }
+      .landing-text { text-align: center; }
+      .features {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .feature { 
+        flex: 1 1 calc(50% - 1rem);
+        max-width: 170px; 
+        padding: 1.4rem 0.8rem; 
+      }
+      .feature i { width: 55px; height: 55px; }
     }
 
-    @media (max-width: 380px) {
-      .features { gap: 0.6rem; }
-      .feature { max-width: 130px; padding: 0.9rem 0.4rem; }
-      .feature i { width: 50px; height: 50px; font-size: 1.5rem; }
+    /* Mobile (≤575px) */
+    @media (max-width: 575.98px) {
+      .main-container { padding: 2rem 1.2rem; }
+      .header-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+      }
+      .logo-container { align-items: center; }
+      .login-card { display: none !important; }
+      .btn-get-started { display: block; }
+      .landing-text { text-align: center; }
+      .landing-image { margin: 2rem auto; }
+      .features {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+      .feature { 
+        flex: 1 1 calc(50% - 0.8rem);
+        max-width: 160px; 
+        padding: 1.2rem 0.6rem; 
+      }
+      .feature i { width: 50px; height: 50px; font-size: 1.3rem; }
       .feature span { font-size: 0.85rem; }
-      .landing-section h1 { font-size: 1.5rem; }
-      .brand-name { font-size: 1.5rem; }
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Small Mobile (≤375px) */
+    @media (max-width: 375px) {
+      .main-container { padding: 1.5rem 1rem; }
+      .features {
+        gap: 0.6rem;
+      }
+      .feature { 
+        padding: 1rem 0.5rem; 
+      }
+      .feature i { width: 45px; height: 45px; font-size: 1.2rem; }
+      .feature span { font-size: 0.8rem; }
     }
-
-    .login-modal .modal-body form > *,
-    .login-content form > * {
-      animation: fadeIn 0.5s ease forwards;
-    }
-
-    .login-modal .modal-body form > *:nth-child(1),
-    .login-content form > *:nth-child(1) { animation-delay: 0.1s; }
-    .login-modal .modal-body form > *:nth-child(2),
-    .login-content form > *:nth-child(2) { animation-delay: 0.2s; }
-    .login-modal .modal-body form > *:nth-child(3),
-    .login-content form > *:nth-child(3) { animation-delay: 0.3s; }
-    .login-modal .modal-body form > *:nth-child(4),
-    .login-content form > *:nth-child(4) { animation-delay: 0.4s; }
-    .login-modal .modal-body form > *:nth-child(5),
-    .login-content form > *:nth-child(5) { animation-delay: 0.5s; }
-    .login-modal .modal-body form > *:nth-child(6),
-    .login-content form > *:nth-child(6) { animation-delay: 0.6s; }
   </style>
 </head>
 <body>
 
-  <!-- Main Content -->
   <div class="main-container">
-    <!-- Landing Section -->
-    <section class="landing-section">
-      <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-      </div>
-      
+    <div class="floating-shapes">
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+
+    <!-- Header: Logo + Larger Login -->
+    <div class="header-row">
       <div class="logo-container">
         <img src="lgo.png" alt="Total Energies Logo" class="logo">
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+        <hr>
         <div class="brand-name">Boardify</div>
+        
       </div>
       
-      <div class="landing-content">
+
+      <!-- Larger Login Card (PC & Tablet) -->
+      <div class="login-card">
+        <h2 class="login-title">Welcome Back</h2>
+        <form>
+          <div class="mb-4">
+            <label for="email" class="form-label">
+              <i class="fas fa-envelope"></i>Email Address
+            </label>
+            <div class="input-group">
+              <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+              <span class="icon"><i class="fas fa-user"></i></span>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label for="password" class="form-label">
+              <i class="fas fa-lock"></i>Password
+            </label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+              <span class="icon"><i class="fas fa-eye-slash"></i></span>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="rememberMe">
+              <label for="rememberMe" class="form-check-label">Remember me</label>
+            </div>
+            <a href="#" class="text-muted">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-login w-100 mb-3">Login</button>
+
+          <p class="signup-text">Don't have an account? <a href="#">Sign up</a></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-area">
+
+      <!-- Hero Text - Left Aligned, Spaced -->
+      <div class="landing-text">
         <h1>AI Powered Board Governance</h1>
         <p>Boardify, Slicksales' AI-driven board management software, is a digital platform designed to help boards of directors, executive teams, and corporate secretaries manage governance, collaboration, and decision-making more effectively — but with the added power of artificial intelligence (AI).</p>
-        
-        <img src="bdr.png" alt="Boardroom Coordination" class="landing-image">
-        
-        <div class="features">
-          <div class="feature">
-            <i class="fas fa-robot"></i>
-            <span>AI Assisted Meetings</span>
-          </div>
-          <div class="feature">
-            <i class="fas fa-brain"></i>
-            <span>AI Driven Strategic Planning</span>
-          </div>
-          <div class="feature">
-            <i class="fas fa-shield-alt"></i>
-            <span>Smart Compliance</span>
-          </div>
-          <div class="feature">
-            <i class="fas fa-chart-line"></i>
-            <span>Board Evaluations</span>
-          </div>
-          <div class="feature">
-            <i class="fas fa-vote-yea"></i>
-            <span>Secure Board Elections & Voting</span>
-          </div>
-          <div class="feature">
-            <i class="fas fa-tasks"></i>
-            <span>Board Approval Workflows</span>
-          </div>
-        </div>
-        
-        <!-- Get Started Button - Mobile/Tablet Only, Centered -->
-        <button type="button" class="btn btn-get-started" data-bs-toggle="modal" data-bs-target="#loginModal">
-          Get Started <i class="fas fa-arrow-right ms-2"></i>
-        </button>
       </div>
-    </section>
 
-    <!-- Login Section - Desktop Only, Higher Position -->
-    <section class="login-section">
-      <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+      <!-- Boardroom Image -->
+      <img src="bdr.png" alt="Boardroom Coordination" class="landing-image">
+
+      <!-- Features - Fully Responsive -->
+      <div class="features">
+        <div class="feature"><i class="fas fa-robot"></i><span>AI Assisted Meetings</span></div>
+        <div class="feature"><i class="fas fa-brain"></i><span>AI Driven Strategic Planning</span></div>
+        <div class="feature"><i class="fas fa-shield-alt"></i><span>Smart Compliance</span></div>
+        <div class="feature"><i class="fas fa-chart-line"></i><span>Board Evaluations</span></div>
+        <div class="feature"><i class="fas fa-vote-yea"></i><span>Secure Board Elections & Voting</span></div>
+        <div class="feature"><i class="fas fa-tasks"></i><span>Board Approval Workflows</span></div>
       </div>
-      
-      <div class="login-container">
-        <div class="login-content">
-          <h2 class="login-title">Welcome to Boardify</h2>
-          <form>
-            <div class="mb-4">
-              <label for="desktop-email" class="form-label">
-                <i class="fas fa-envelope"></i>Email Address
-              </label>
-              <div class="input-group">
-                <input type="email" class="form-control" id="desktop-email" placeholder="you@example.com" required>
-                <span class="icon"><i class="fas fa-user"></i></span>
-              </div>
-            </div>
 
-            <div class="mb-4">
-              <label for="desktop-password" class="form-label">
-                <i class="fas fa-lock"></i>Password
-              </label>
-              <div class="input-group">
-                <input type="password" class="form-control" id="desktop-password" placeholder="••••••••" required>
-                <span class="icon"><i class="fas fa-eye-slash"></i></span>
-              </div>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center mb-4">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="desktop-rememberMe">
-                <label for="desktop-rememberMe" class="form-check-label">
-                  <i class="fas "></i>Remember me
-                </label>
-              </div>
-              <a href="#" class="text-muted">Forgot password?</a>
-            </div>
-
-            <button type="submit" class="btn btn-login w-100 mb-3">Login</button>
-
-            <p class="signup-text mt-4">
-              Don't have an account? <a href="#">Sign up</a>
-            </p>
-          </form>
-        </div>
-      </div>
-    </section>
+      <!-- Get Started - Mobile Only -->
+      <button type="button" class="btn-get-started" data-bs-toggle="modal" data-bs-target="#loginModal">
+        Get Started <i class="fas fa-arrow-right ms-2"></i>
+      </button>
+    </div>
   </div>
 
-  <!-- Login Modal - Full Page on Mobile -->
+  <!-- Mobile Login Modal -->
   <div class="modal fade login-modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen-md-down">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Welcome to Boardify</h5>
+          <h5 class="modal-title" id="loginModalLabel">Welcome Back</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form>
             <div class="mb-4">
-              <label for="email" class="form-label">
+              <label for="mobile-email" class="form-label">
                 <i class="fas fa-envelope"></i>Email Address
               </label>
               <div class="input-group">
-                <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                <input type="email" class="form-control" id="mobile-email" placeholder="you@example.com" required>
                 <span class="icon"><i class="fas fa-user"></i></span>
               </div>
             </div>
 
             <div class="mb-4">
-              <label for="password" class="form-label">
+              <label for="mobile-password" class="form-label">
                 <i class="fas fa-lock"></i>Password
               </label>
               <div class="input-group">
-                <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                <input type="password" class="form-control" id="mobile-password" placeholder="••••••••" required>
                 <span class="icon"><i class="fas fa-eye-slash"></i></span>
               </div>
             </div>
 
             <div class="d-flex justify-content-between align-items-center mb-4">
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="rememberMe">
-                <label for="rememberMe" class="form-check-label">
-                  <i class="fas fa-check-circle"></i>Remember me
-                </label>
+                <input type="checkbox" class="form-check-input" id="mobile-rememberMe">
+                <label for="mobile-rememberMe" class="form-check-label">Remember me</label>
               </div>
               <a href="#" class="text-muted">Forgot password?</a>
             </div>
 
             <button type="submit" class="btn btn-login w-100 mb-3">Login</button>
 
-            <p class="signup-text mt-4">
-              Don't have an account? <a href="#">Sign up</a>
-            </p>
+            <p class="signup-text">Don't have an account? <a href="#">Sign up</a></p>
           </form>
         </div>
       </div>
@@ -792,24 +658,10 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Password toggle (mobile)
-      const passwordInput = document.getElementById('password');
-      const eyeIcon = document.querySelector('.login-modal .fa-eye-slash');
-      if (eyeIcon && passwordInput) {
-        eyeIcon.addEventListener('click', () => togglePassword(passwordInput, eyeIcon));
-      }
-
-      // Password toggle (desktop)
-      const desktopPasswordInput = document.getElementById('desktop-password');
-      const desktopEyeIcon = document.querySelector('.login-content .fa-eye-slash');
-      if (desktopEyeIcon && desktopPasswordInput) {
-        desktopEyeIcon.addEventListener('click', () => togglePassword(desktopPasswordInput, desktopEyeIcon));
-      }
-
-      function togglePassword(input, icon) {
+      const togglePassword = (input, icon) => {
         if (input.type === 'password') {
           input.type = 'text';
           icon.classList.replace('fa-eye-slash', 'fa-eye');
@@ -817,34 +669,34 @@
           input.type = 'password';
           icon.classList.replace('fa-eye', 'fa-eye-slash');
         }
-      }
+      };
 
-      // Form submission animation (both)
-      ['.login-modal form', '.login-content form'].forEach(selector => {
-        const form = document.querySelector(selector);
-        if (form) {
-          form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('.btn-login');
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
-            btn.disabled = true;
+      document.querySelectorAll('.fa-eye-slash').forEach(icon => {
+        const input = icon.closest('.input-group').querySelector('input');
+        icon.addEventListener('click', () => togglePassword(input, icon));
+      });
+
+      document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const btn = this.querySelector('.btn-login');
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+          btn.disabled = true;
+
+          setTimeout(() => {
+            btn.innerHTML = '<i class="fas fa-check"></i> Login Successful!';
+            btn.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
 
             setTimeout(() => {
-              btn.innerHTML = '<i class="fas fa-check"></i> Login Successful!';
-              btn.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
-
-              setTimeout(() => {
-                btn.innerHTML = 'Login';
-                btn.disabled = false;
-                btn.style.background = '';
-                if (selector.includes('modal')) {
-                  const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
-                  modal?.hide();
-                }
-              }, 1500);
+              btn.innerHTML = 'Login';
+              btn.disabled = false;
+              btn.style.background = '';
+              if (form.closest('.modal')) {
+                bootstrap.Modal.getInstance(document.getElementById('loginModal'))?.hide();
+              }
             }, 1500);
-          });
-        }
+          }, 1500);
+        });
       });
     });
   </script>
