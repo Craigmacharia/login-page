@@ -29,9 +29,7 @@
       --gradient-hover: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f0 100%);
@@ -44,14 +42,13 @@
       overflow-x: hidden;
     }
 
-    /* Main Content Layout */
     .main-container {
       flex: 1;
       display: flex;
       min-height: 100vh;
     }
 
-    /* Landing Section */
+    /* ==================== LANDING SECTION ==================== */
     .landing-section {
       flex: 1;
       background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
@@ -69,9 +66,7 @@
     .landing-section::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 4px;
       background: var(--gradient-primary);
       z-index: 1;
@@ -104,14 +99,8 @@
       margin-bottom: 0.5rem;
     }
 
-    .brand-subtitle {
-      font-size: 1.1rem;
-      color: #666;
-      font-weight: 500;
-    }
-
     .landing-content {
-      max-width: 900px;
+      max-width: 1000px;
       text-align: center;
       z-index: 2;
       width: 100%;
@@ -150,38 +139,38 @@
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     }
 
-    /* Enhanced Features Section */
+    /* ==================== FEATURES - OPTIMIZED FOR ALL SCREENS ==================== */
     .features {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 1.8rem;
+      gap: 1.5rem;
       margin: 3rem 0 2rem;
       width: 100%;
+      max-width: 1100px;
+      justify-content: center;
+      align-items: stretch;
     }
 
     .feature {
+      flex: 1 1 160px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 200px;
       padding: 1.8rem 1.2rem;
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%);
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: relative;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.6);
-      flex: 1 1 180px;
+      min-height: 200px;
     }
 
     .feature::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 3px;
       background: var(--gradient-primary);
       transform: scaleX(0);
@@ -193,17 +182,15 @@
       box-shadow: 0 20px 40px rgba(210, 25, 25, 0.15);
     }
 
-    .feature:hover::before {
-      transform: scaleX(1);
-    }
+    .feature:hover::before { transform: scaleX(1); }
 
     .feature i {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       margin-bottom: 1.2rem;
       background: var(--gradient-primary);
       color: white;
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -221,15 +208,15 @@
       font-weight: 700;
       text-align: center;
       color: #333;
-      font-size: 1.1rem;
+      font-size: 1rem;
       letter-spacing: 0.3px;
       transition: all 0.3s ease;
+      line-height: 1.4;
     }
 
-    .feature:hover span {
-      color: var(--primary-blue);
-    }
+    .feature:hover span { color: var(--primary-blue); }
 
+    /* ==================== GET STARTED BUTTON ==================== */
     .btn-get-started {
       background: var(--gradient-primary);
       color: white;
@@ -243,6 +230,11 @@
       overflow: hidden;
       box-shadow: 0 6px 20px rgba(210, 25, 25, 0.3);
       margin-top: 2rem;
+      display: inline-block;
+      width: 100%;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .btn-get-started:hover {
@@ -251,26 +243,23 @@
       box-shadow: 0 10px 25px rgba(210, 25, 25, 0.4);
     }
 
-    .btn-get-started:active {
-      transform: translateY(0);
-    }
+    .btn-get-started:active { transform: translateY(0); }
 
-    /* Login Section - Desktop Only */
+    /* ==================== LOGIN SECTION - REFINED POSITIONING ==================== */
     .login-section {
       display: none;
-      flex: 0 0 45%;
+      flex: 0 0 420px;
       background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
       position: relative;
       overflow: hidden;
+      padding: 2rem;
+      box-shadow: none;
     }
 
     .login-section::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 4px;
       background: var(--gradient-primary);
       z-index: 1;
@@ -278,30 +267,29 @@
 
     .login-container {
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       height: 100%;
-      padding: 3rem 2rem;
+      width: 100%;
+      padding-top: 2rem;
     }
 
     .login-content {
-      max-width: 400px;
+      max-width: 380px;
       width: 100%;
-      padding: 2.5rem;
+      padding: 2.5rem 2rem;
       border-radius: 20px;
       background: white;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
       position: relative;
+      animation: fadeInUp 0.6s ease-out;
     }
 
     .login-content::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
+      top: 0; left: 0; right: 0;
+      height: 5px;
       background: var(--gradient-primary);
       border-radius: 20px 20px 0 0;
     }
@@ -310,49 +298,12 @@
       color: var(--primary-blue);
       text-align: center;
       font-weight: 700;
-      font-size: 1.9rem;
+      font-size: 1.8rem;
       letter-spacing: 0.5px;
       margin-bottom: 2rem;
     }
 
-    /* Login Modal - Mobile Only */
-    .login-modal .modal-content {
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-    }
-
-    .login-modal .modal-header {
-      border-bottom: none;
-      padding: 2rem 2rem 0.8rem;
-      position: relative;
-    }
-
-    .login-modal .modal-header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 4px;
-      background: var(--gradient-primary);
-      border-radius: 2px;
-    }
-
-    .login-modal .modal-title {
-      color: var(--primary-blue);
-      text-align: center;
-      font-weight: 700;
-      font-size: 1.9rem;
-      letter-spacing: 0.5px;
-      width: 100%;
-    }
-
-    .login-modal .modal-body {
-      padding: 1.8rem 2.2rem 2.2rem;
-    }
-
+    /* ==================== FORM STYLES ==================== */
     .form-control {
       border-radius: 12px;
       border: 1.5px solid #ddd;
@@ -369,9 +320,7 @@
       transform: translateY(-2px);
     }
 
-    .input-group {
-      position: relative;
-    }
+    .input-group { position: relative; }
 
     .input-group .icon {
       position: absolute;
@@ -415,9 +364,7 @@
       box-shadow: 0 7px 20px rgba(210, 25, 25, 0.4);
     }
 
-    .btn-login:active {
-      transform: translateY(0);
-    }
+    .btn-login:active { transform: translateY(0); }
 
     .form-check-label {
       font-size: 0.95rem;
@@ -469,55 +416,16 @@
       transition: var(--transition);
     }
 
-    .signup-text a:hover::after {
-      width: 100%;
-    }
+    .signup-text a:hover::after { width: 100%; }
 
-    .divider {
-      display: flex;
-      align-items: center;
-      margin: 1.8rem 0;
-    }
-
-    .divider::before,
-    .divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: #ddd;
-    }
-
-    .divider span {
-      padding: 0 1.2rem;
-      color: #777;
-      font-size: 0.9rem;
-    }
-
-    .social-login {
-      display: none; /* Hidden as requested */
-    }
-
-    /* Premium UI Enhancements */
-    .premium-badge {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: var(--gradient-primary);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      box-shadow: 0 4px 10px rgba(210, 25, 25, 0.3);
-      z-index: 10;
-    }
-
+    /* ==================== FLOATING SHAPES ==================== */
     .floating-shapes {
       position: absolute;
       width: 100%;
       height: 100%;
       overflow: hidden;
       z-index: 0;
+      pointer-events: none;
     }
 
     .shape {
@@ -527,324 +435,174 @@
       animation: float 15s infinite ease-in-out;
     }
 
-    .shape:nth-child(1) {
-      width: 150px;
-      height: 150px;
-      top: 10%;
-      left: 5%;
-      animation-delay: 0s;
-    }
-
-    .shape:nth-child(2) {
-      width: 100px;
-      height: 100px;
-      top: 60%;
-      left: 80%;
-      animation-delay: 2s;
-    }
-
-    .shape:nth-child(3) {
-      width: 200px;
-      height: 200px;
-      top: 30%;
-      left: 70%;
-      animation-delay: 4s;
-    }
-
-    .shape:nth-child(4) {
-      width: 120px;
-      height: 120px;
-      top: 80%;
-      left: 10%;
-      animation-delay: 6s;
-    }
+    .shape:nth-child(1) { width: 180px; height: 180px; top: 10%; left: 5%; animation-delay: 0s; }
+    .shape:nth-child(2) { width: 120px; height: 120px; top: 60%; left: 80%; animation-delay: 2s; }
+    .shape:nth-child(3) { width: 220px; height: 220px; top: 30%; left: 70%; animation-delay: 4s; }
+    .shape:nth-child(4) { width: 140px; height: 140px; top: 80%; left: 10%; animation-delay: 6s; }
 
     @keyframes float {
-      0%, 100% {
-        transform: translateY(0) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-20px) rotate(10deg);
-      }
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-25px) rotate(12deg); }
     }
 
-    /* Responsive Adjustments - Enhanced */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==================== LOGIN MODAL - FULL PAGE ON MOBILE ==================== */
+    .login-modal .modal-content {
+      border-radius: 0;
+      border: none;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    }
+
+    .login-modal .modal-header {
+      border-bottom: none;
+      padding: 2rem 2rem 0;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .login-modal .modal-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+    }
+
+    .login-modal .modal-title {
+      color: var(--primary-blue);
+      text-align: center;
+      font-weight: 700;
+      font-size: 2.2rem;
+      letter-spacing: 0.5px;
+      width: 100%;
+    }
+
+    .login-modal .modal-body {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-modal .modal-body form {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    /* ==================== DESKTOP LAYOUT (≥1200px) ==================== */
     @media (min-width: 1200px) {
-      .login-section {
-        display: flex;
+      .login-section { 
+        display: flex; 
       }
-      
-      .landing-section {
-        flex: 0 0 55%;
+      .landing-section { 
+        flex: 1; 
+        justify-content: center;
       }
-      
-      /* Hide Get Started button on desktop */
+      .features {
+        flex-wrap: nowrap;
+        gap: 1.5rem;
+      }
+      .feature {
+        flex: 1;
+        max-width: 170px;
+      }
       .btn-get-started {
-        display: none;
+        display: none !important;
       }
     }
 
-    @media (max-width: 1200px) {
-      .logo {
-        width: 250px;
-        height: 160px;
+    /* ==================== MOBILE & TABLET (<1200px) ==================== */
+    @media (max-width: 1199.98px) {
+      .main-container { 
+        flex-direction: column; 
       }
-      
-      .brand-name {
-        font-size: 2.2rem;
+      .btn-get-started {
+        display: block;
       }
-      
-      .landing-section h1 {
-        font-size: 2.2rem;
+      .features {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .feature {
+        flex: 1 1 150px;
+        max-width: 180px;
       }
     }
 
     @media (max-width: 992px) {
-      .main-container {
-        flex-direction: column;
-      }
-      
-      .landing-section {
-        padding: 2.5rem 1.5rem;
-        min-height: auto;
-        justify-content: flex-start;
-        padding-top: 3rem;
-      }
-      
-      .landing-section h1 {
-        font-size: 2rem;
-      }
-      
-      .landing-section p {
-        font-size: 1.1rem;
-      }
-      
-      .features {
-        gap: 1.5rem;
-      }
-      
-      .feature {
-        max-width: 180px;
-        padding: 1.5rem 1rem;
-        flex: 1 1 160px;
-      }
-      
-      .feature i {
-        width: 70px;
-        height: 70px;
-        font-size: 2rem;
-      }
-      
-      .brand-name {
-        font-size: 2rem;
-      }
-      
-      .logo {
-        width: 220px;
-        height: 140px;
-      }
+      .landing-section { padding: 2.5rem 1.5rem; }
+      .landing-section h1 { font-size: 2rem; }
+      .landing-section p { font-size: 1.1rem; }
+      .features { gap: 1.5rem; }
+      .feature { max-width: 180px; padding: 1.5rem 1rem; }
+      .feature i { width: 70px; height: 70px; font-size: 2rem; }
+      .logo { width: 220px; height: 140px; }
+      .brand-name { font-size: 2rem; }
     }
 
     @media (max-width: 768px) {
-      .login-modal .modal-body {
-        padding: 1.5rem 1.8rem 2rem;
-      }
-      
-      .landing-section h1 {
-        font-size: 1.9rem;
-      }
-      
-      .landing-section p {
-        font-size: 1.05rem;
-      }
-      
-      .features {
-        gap: 1.2rem;
-      }
-      
-      .feature {
-        max-width: 160px;
-        padding: 1.3rem 0.8rem;
-        flex: 1 1 140px;
-      }
-      
-      .feature i {
-        width: 65px;
-        height: 65px;
-        font-size: 1.8rem;
-      }
-      
-      .feature span {
-        font-size: 1rem;
-      }
-      
-      .brand-name {
-        font-size: 1.9rem;
-      }
-      
-      .logo {
-        width: 200px;
-        height: 130px;
-      }
+      .landing-section h1 { font-size: 1.9rem; }
+      .landing-section p { font-size: 1.05rem; }
+      .features { gap: 1.2rem; }
+      .feature { max-width: 160px; padding: 1.3rem 0.8rem; }
+      .feature i { width: 65px; height: 65px; font-size: 1.8rem; }
+      .feature span { font-size: 1rem; }
+      .logo { width: 200px; height: 130px; }
+      .brand-name { font-size: 1.9rem; }
     }
 
     @media (max-width: 576px) {
-      .landing-section {
-        padding: 2rem 1rem;
-      }
+      .landing-section { padding: 2rem 1rem; }
+      .landing-section h1 { font-size: 1.7rem; }
+      .landing-section p { font-size: 1rem; margin-bottom: 2rem; }
+      .landing-image { max-width: 100%; margin: 1.5rem 0; }
+      .logo { width: 180px; height: 120px; padding: 12px; }
+      .features { gap: 1rem; margin: 2.5rem 0 1.5rem; }
+      .feature { max-width: 150px; padding: 1.2rem 0.6rem; }
+      .feature i { width: 60px; height: 60px; font-size: 1.7rem; margin-bottom: 1rem; }
+      .feature span { font-size: 0.95rem; }
+      .btn-get-started { padding: 0.9rem 2.2rem; font-size: 1.1rem; }
       
-      .landing-section h1 {
-        font-size: 1.7rem;
-      }
-      
-      .landing-section p {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-      }
-      
-      .landing-image {
-        max-width: 100%;
-        margin: 1.5rem 0;
-      }
-      
-      .login-modal .modal-body {
-        padding: 1.3rem 1.5rem 1.8rem;
-      }
-      
-      .brand-name {
-        font-size: 1.7rem;
-      }
-      
-      .logo {
-        width: 180px;
-        height: 120px;
-        padding: 12px;
-      }
-      
-      .features {
-        gap: 1rem;
-        margin: 2.5rem 0 1.5rem;
-      }
-      
-      .feature {
-        max-width: 150px;
-        padding: 1.2rem 0.6rem;
-        flex: 1 1 130px;
-      }
-      
-      .feature i {
-        width: 60px;
-        height: 60px;
-        font-size: 1.7rem;
-        margin-bottom: 1rem;
-      }
-      
-      .feature span {
-        font-size: 0.95rem;
-      }
-      
-      .btn-get-started {
-        padding: 0.9rem 2.2rem;
-        font-size: 1.1rem;
-        display: block; /* Ensure it's visible on mobile */
-        width: 100%;
-        max-width: 280px;
-      }
-      
-      /* Full-screen modal on mobile */
       .login-modal .modal-dialog {
         margin: 0;
         max-width: 100%;
         height: 100vh;
       }
-      
-      .login-modal .modal-content {
-        height: 100%;
-        border-radius: 0;
-        overflow-y: auto;
-      }
-      
-      .form-control {
-        padding: 0.8rem 1rem;
-        font-size: 16px; /* Prevent zoom on iOS */
-      }
     }
 
     @media (max-width: 480px) {
-      .landing-section {
-        padding: 1.5rem 0.8rem;
-      }
-      
-      .landing-section h1 {
-        font-size: 1.6rem;
-      }
-      
-      .brand-name {
-        font-size: 1.6rem;
-      }
-      
-      .logo {
-        width: 160px;
-        height: 110px;
-      }
-      
-      .features {
-        gap: 0.8rem;
-      }
-      
-      .feature {
-        max-width: 140px;
-        padding: 1rem 0.5rem;
-        flex: 1 1 120px;
-      }
-      
-      .feature i {
-        width: 55px;
-        height: 55px;
-        font-size: 1.6rem;
-      }
-      
-      .feature span {
-        font-size: 0.9rem;
-      }
-      
-      .btn-get-started {
-        padding: 0.8rem 1.8rem;
-        font-size: 1rem;
-      }
+      .landing-section { padding: 1.5rem 0.8rem; }
+      .landing-section h1 { font-size: 1.6rem; }
+      .brand-name { font-size: 1.6rem; }
+      .logo { width: 160px; height: 110px; }
+      .features { gap: 0.8rem; }
+      .feature { max-width: 140px; padding: 1rem 0.5rem; }
+      .feature i { width: 55px; height: 55px; font-size: 1.6rem; }
+      .feature span { font-size: 0.9rem; }
+      .btn-get-started { padding: 0.8rem 1.8rem; font-size: 1rem; }
     }
 
     @media (max-width: 380px) {
-      .features {
-        gap: 0.6rem;
-      }
-      
-      .feature {
-        max-width: 130px;
-        padding: 0.9rem 0.4rem;
-        flex: 1 1 110px;
-      }
-      
-      .feature i {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-      }
-      
-      .feature span {
-        font-size: 0.85rem;
-      }
-      
-      .landing-section h1 {
-        font-size: 1.5rem;
-      }
-      
-      .brand-name {
-        font-size: 1.5rem;
-      }
+      .features { gap: 0.6rem; }
+      .feature { max-width: 130px; padding: 0.9rem 0.4rem; }
+      .feature i { width: 50px; height: 50px; font-size: 1.5rem; }
+      .feature span { font-size: 0.85rem; }
+      .landing-section h1 { font-size: 1.5rem; }
+      .brand-name { font-size: 1.5rem; }
     }
 
-    /* Animation for form elements */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -920,13 +678,14 @@
           </div>
         </div>
         
+        <!-- Get Started Button - Mobile/Tablet Only, Centered -->
         <button type="button" class="btn btn-get-started" data-bs-toggle="modal" data-bs-target="#loginModal">
           Get Started <i class="fas fa-arrow-right ms-2"></i>
         </button>
       </div>
     </section>
 
-    <!-- Login Section - Desktop Only -->
+    <!-- Login Section - Desktop Only, Higher Position -->
     <section class="login-section">
       <div class="floating-shapes">
         <div class="shape"></div>
@@ -963,7 +722,7 @@
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="desktop-rememberMe">
                 <label for="desktop-rememberMe" class="form-check-label">
-                  <i class="fas fa-check-circle"></i>Remember me
+                  <i class="fas "></i>Remember me
                 </label>
               </div>
               <a href="#" class="text-muted">Forgot password?</a>
@@ -980,12 +739,12 @@
     </section>
   </div>
 
-  <!-- Login Modal - Mobile Only -->
+  <!-- Login Modal - Full Page on Mobile -->
   <div class="modal fade login-modal" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-fullscreen-md-down">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Welcome Back</h5>
+          <h5 class="modal-title" id="loginModalLabel">Welcome to Boardify</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -1035,97 +794,58 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   
   <script>
-    // Simple password visibility toggle
     document.addEventListener('DOMContentLoaded', function() {
-      // Mobile password toggle
+      // Password toggle (mobile)
       const passwordInput = document.getElementById('password');
-      const eyeIcon = document.querySelector('.fa-eye-slash');
-      
-      if (eyeIcon) {
-        eyeIcon.addEventListener('click', function() {
-          if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            eyeIcon.classList.remove('fa-eye-slash');
-            eyeIcon.classList.add('fa-eye');
-          } else {
-            passwordInput.type = 'password';
-            eyeIcon.classList.remove('fa-eye');
-            eyeIcon.classList.add('fa-eye-slash');
-          }
-        });
+      const eyeIcon = document.querySelector('.login-modal .fa-eye-slash');
+      if (eyeIcon && passwordInput) {
+        eyeIcon.addEventListener('click', () => togglePassword(passwordInput, eyeIcon));
       }
-      
-      // Desktop password toggle
+
+      // Password toggle (desktop)
       const desktopPasswordInput = document.getElementById('desktop-password');
-      const desktopEyeIcon = document.querySelector('#desktop-password + .icon .fa-eye-slash');
-      
-      if (desktopEyeIcon) {
-        desktopEyeIcon.addEventListener('click', function() {
-          if (desktopPasswordInput.type === 'password') {
-            desktopPasswordInput.type = 'text';
-            desktopEyeIcon.classList.remove('fa-eye-slash');
-            desktopEyeIcon.classList.add('fa-eye');
-          } else {
-            desktopPasswordInput.type = 'password';
-            desktopEyeIcon.classList.remove('fa-eye');
-            desktopEyeIcon.classList.add('fa-eye-slash');
-          }
-        });
+      const desktopEyeIcon = document.querySelector('.login-content .fa-eye-slash');
+      if (desktopEyeIcon && desktopPasswordInput) {
+        desktopEyeIcon.addEventListener('click', () => togglePassword(desktopPasswordInput, desktopEyeIcon));
       }
-      
-      // Form submission animation for mobile
-      const form = document.querySelector('.login-modal form');
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          const button = this.querySelector('.btn-login');
-          button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
-          button.disabled = true;
-          
-          // Simulate login process
-          setTimeout(function() {
-            button.innerHTML = '<i class="fas fa-check"></i> Login Successful!';
-            button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
-            
-            // Close modal after successful login
-            setTimeout(function() {
-              const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
-              modal.hide();
-              
-              // Reset button after modal closes
-              setTimeout(function() {
-                button.innerHTML = 'Login';
-                button.disabled = false;
-                button.style.background = '';
-              }, 500);
+
+      function togglePassword(input, icon) {
+        if (input.type === 'password') {
+          input.type = 'text';
+          icon.classList.replace('fa-eye-slash', 'fa-eye');
+        } else {
+          input.type = 'password';
+          icon.classList.replace('fa-eye', 'fa-eye-slash');
+        }
+      }
+
+      // Form submission animation (both)
+      ['.login-modal form', '.login-content form'].forEach(selector => {
+        const form = document.querySelector(selector);
+        if (form) {
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('.btn-login');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+              btn.innerHTML = '<i class="fas fa-check"></i> Login Successful!';
+              btn.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+
+              setTimeout(() => {
+                btn.innerHTML = 'Login';
+                btn.disabled = false;
+                btn.style.background = '';
+                if (selector.includes('modal')) {
+                  const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+                  modal?.hide();
+                }
+              }, 1500);
             }, 1500);
-          }, 1500);
-        });
-      }
-      
-      // Form submission animation for desktop
-      const desktopForm = document.querySelector('.login-content form');
-      if (desktopForm) {
-        desktopForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          const button = this.querySelector('.btn-login');
-          button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
-          button.disabled = true;
-          
-          // Simulate login process
-          setTimeout(function() {
-            button.innerHTML = '<i class="fas fa-check"></i> Login Successful!';
-            button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
-            
-            // Reset button after successful login
-            setTimeout(function() {
-              button.innerHTML = 'Login';
-              button.disabled = false;
-              button.style.background = '';
-            }, 1500);
-          }, 1500);
-        });
-      }
+          });
+        }
+      });
     });
   </script>
 </body>
